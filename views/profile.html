@@ -1,0 +1,40 @@
+<div class="container profile">
+  <div class="row">
+    <div class="col-sm-1">
+      <img ng-src="http://www.gravatar.com/avatar/{{ user.md5_hash }}" class="prof-img" />
+    </div>
+    <div class="col-sm-10">
+      <span class="name">{{user.username}}</span>
+    </div>
+  </div>
+
+  <div class="row">
+    <ul class="nav nav-tabs">
+      <li class="active"><a data-target="#submissions" data-toggle="tab">Submissions</a></li>
+      <li><a data-target="#questions" data-toggle="tab">Questions</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="tab-content">
+  <div ng-include="'views/tests.html'" class="tab-pane active" id="submissions" ng-controller="TestsCtrl"></div>
+  <div class="container posts-page tab-pane" id="questions">
+    <div class="test row" ng-repeat="(questionId, question) in questions">
+      <div class="col-xs-1">
+
+      </div>
+      <div class="col-md-9 col-xs-11">
+        <div class="info">
+          <a href="{{questionOnTests[question.testId].url }}">{{ questionOnTests[question.testId].title }}</a>
+          <span class="url">({{ questionOnTests[question.testId].url | hostnameFromUrl }})</span>
+        </div>
+
+        <a href="#/tests/{{question.testId}}">questions</a>
+        <p>{{question.text}}</p>
+      </div>
+      <div class="col-md-2">
+
+      </div>
+    </div>
+  </div>
+</div>

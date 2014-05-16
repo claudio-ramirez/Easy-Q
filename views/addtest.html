@@ -1,0 +1,48 @@
+
+<div class="form-default" ng-submit="submitTest()" ng-show="signedIn()">
+    <form class="form-horizontal" role="form">
+      <fieldset>
+
+        <legend>Crear Test</legend>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="textinput">Nombre</label>
+	          <div class="col-sm-10">
+
+	            <input type="text" class="form-control" ng-model="test.title" required autofocus>
+
+	          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="textinput">Descripción</label>
+	          <div class="col-sm-10">
+
+	            <input type="text" class="form-control" ng-model="test.description" required>
+
+	          </div>
+        </div>
+
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="textinput">Categoría</label>
+            <div class="col-sm-10">
+
+              <input type="text" class="form-control" ng-model="test.category" required>
+
+            </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="pull-right">
+
+              <button type="submit" class="btn btn-primary">Crear</button>
+              <button class="btn btn-default"><a href="#/">Volver</a></button>
+
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+</div>

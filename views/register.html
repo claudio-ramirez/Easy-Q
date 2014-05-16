@@ -1,0 +1,54 @@
+
+<div class="container">
+    <form class="form-signin" ng-submit="register()" name="form">
+
+      <h2 class="form-signin-heading text-center">Registrar Usuario</h2><br>
+      <!-- Nombre de Usuario -->
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="text" class="form-control" placeholder="Nombre" ng-model="user.username" name="username" required autofocus>
+      </div><br>
+      <!-- Apellido de Usuario -->
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="text" class="form-control" placeholder="Apellido" ng-model="user.surname" name="surname" required>
+      </div><br>
+      <!-- Email de Usuario -->
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+        <input type="email" class="form-control" placeholder="Correo Electrónico" ng-model="user.email" name="email" check-email required>
+      </div><br>
+      <!-- Contraseña de Usuario -->
+      <div class="input-group">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input type="text" class="form-control" ng-minlength=5 placeholder="Contraseña" ng-model="user.password" name="password" required>
+      </div><br>
+
+      <div ng-show="form.email.$dirty && form.email.$invalid">
+        <!-- Errores del Formulario -->
+        <p class="alert alert-warning" ng-show="form.username.$error.required">Por Favor Ingresar un Nombre</p>
+        <p class="alert alert-warning" ng-show="form.email.$error.required">Por Favor Ingresar un Correo Electrónico</p>
+        <p class="alert alert-warning" ng-show="form.password.$error.required">Por Favor Ingresar una Contraseña</p>
+        <p class="alert alert-danger" ng-show="form.email.$error.taken">El Email Ya Está en Uso</p>
+        <p class="alert alert-danger" ng-show="form.email.$error.email" >Email Invalido</p>
+        <p class="alert alert-danger" ng-show="form.password.$error.minlength" >La Contraseña Necesita un Mínimo de 5 Caracteres</p>
+
+      </div>
+
+      <div class="text-center">
+
+        <h4>Condiciones de Uso</h4>
+
+        <p>Esta aplicacion esta enfocada al ambito educacional, como herramienta de apoyo para cualquier quiz o test.<br>
+        El administrador de Tide Easy Q se reservan el derecho de remover, editar, mover o cerrar cualquier tema por cualquier razón.</p>
+
+        <input type="checkbox" name="agreement" ng-model="user.agreement" required><br>
+
+        Acepto<br><br>
+
+      </div>
+
+      <button type="submit" class="btn btn-lg btn-primary btn-block"  ng-disabled="form.$invalid" value="Register">Registrar Usuario</button><br>
+
+    </form>
+</div>

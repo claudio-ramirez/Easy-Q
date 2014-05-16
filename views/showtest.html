@@ -1,0 +1,95 @@
+
+<div class="form-default">
+    <form class="form-horizontal" role="form">
+      <fieldset>
+
+        <legend>Test {{test.title}}</legend>
+        <!-- Nombre del Test -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="textinput">Nombre</label>
+            <div class="col-sm-10">
+
+              <input type="text" class="form-control" placeholder="{{test.title}}"  ng-disabled="true">
+
+            </div>
+        </div>
+        <!-- Descripción del Test -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="textinput">Descripción</label>
+            <div class="col-sm-10">
+
+              <input type="text" class="form-control" placeholder="{{test.description}}" ng-disabled="true">
+
+            </div>
+        </div>
+        <!-- Categoría del Test -->
+        <div class="form-group">
+          <label class="col-sm-2 control-label" for="textinput">Categoría</label>
+            <div class="col-sm-10">
+
+              <input type="text" class="form-control" placeholder="{{test.category}}" ng-disabled="true">
+
+            </div>
+        </div>
+
+        <legend>Confeccionar Preguntas y Alternativas</legend>
+
+        <ol>
+          <!-- Visualización de Preguntas -->
+          <li ng-repeat="(questionId, question) in test.questions">
+            <a>{{question.text}}</a>
+            <span class="badge">
+              <a class="link-color" ng-click="removeQuestion(question, questionId)" ng-show="signedIn() && question.username === currentUser.username">Eliminar</a>
+            </span>
+            <!-- Visualización de Alternativas -->
+            <ol type="A">
+              <li ng-repeat="(alternativeId, alternative) in test.alternatives">
+                <a>{{alternative.text}}</a>
+                <span class="badge">
+                  <a class="link-color" ng-click="removeAlternative(alternative, alternativeId)" ng-show="signedIn() && question.username === currentUser.username">Eliminar</a>
+                </span>
+              </li>
+            </ol>
+            <!-- Ingresar Alternativas -->
+            <form class="cmt-form">
+              <div class="input-group" ng-show="signedIn()" ng-submit="addAlternative()">
+                  <span class="input-group-btn">
+                    <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+                  </span>
+
+                  <input type="text" class="form-control" ng-model="alternative.text" placeholder="Agregar Alternativa">
+
+                  <span class="input-group-btn">
+                    <button type="submit" ng-click="addAlternative()" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
+                  </span>
+              </div>
+            </form>
+          </li>
+        </ol>
+        <!-- Ingresar Preguntas -->
+        <form class="cmt-form">
+          <div class="input-group" ng-show="signedIn()" ng-submit="addQuestion()">
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span></button>
+              </span>
+              <input type="text" class="form-control" ng-model="question.text" placeholder="Agregar Pregunta">
+          </div><br>
+
+          <div class="text-center">
+            <button type="submit" ng-click="addQuestion()" class="btn btn-default"><span class="glyphicon glyphicon-ok"></span></button>
+          </div>
+        </form>
+
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <div class="pull-right">
+
+              <button class="btn btn-default"><a href="#/">Volver</a></button>
+
+            </div>
+          </div>
+        </div>
+
+      </fieldset>
+    </form>
+</div>

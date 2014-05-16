@@ -1,0 +1,57 @@
+<!doctype html>
+<html class="no-js">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Easy Q</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+
+    <!-- style -->
+    <link rel="stylesheet" href="http://bootswatch.com/cerulean/bootstrap.css">
+    <link rel="stylesheet" href="styles/main.css">
+
+  </head>
+  <body ng-app="angNewsApp">
+
+    <div ng-include="'views/nav.html'"></div>
+    <div class="container" ng-view=""></div>
+
+    <!-- jquery -->
+    <script type='text/javascript' src="http://code.jquery.com/jquery.js"></script>
+    <!-- bootstrap -->
+    <script type='text/javascript' src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.js"></script>
+    <!-- angularjs -->
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-resource.js"></script>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-cookies.js"></script>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-sanitize.js"></script>
+    <script type='text/javascript' src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular-route.js"></script>
+    <!-- firebase -->
+    <script type='text/javascript' src="https://cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
+    <!-- firebase simple login -->
+    <script type='text/javascript' src="https://cdn.firebase.com/js/simple-login/1.3.2/firebase-simple-login.js"></script>
+    <!-- angularfire -->
+    <script type='text/javascript' src="https://cdn.firebase.com/libs/angularfire/0.7.1/angularfire.js"></script>
+    <!-- bootstrap ui -->
+    <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.10.0/ui-bootstrap-tpls.js"></script>
+
+    <script src="scripts/app.js"></script>
+
+    <!-- controllers -->
+    <script src="scripts/controllers/nav.js"></script>
+    <script src="scripts/controllers/tests.js"></script>
+    <script src="scripts/controllers/testview.js"></script>
+    <script src="scripts/controllers/auth.js"></script>
+    <script src="scripts/controllers/profile.js"></script>
+    <!-- services -->
+    <script src="scripts/services/test.js"></script>
+    <script src="scripts/services/auth.js"></script>
+    <script src="scripts/services/user.js"></script>
+    <!-- filter -->
+    <script src="scripts/filters/url.js"></script>
+    <!-- directives -->
+    <script src="scripts/directives/checkusername.js"></script>
+
+</body>
+</html>

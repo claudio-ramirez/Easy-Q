@@ -1,0 +1,61 @@
+
+<form align="center">
+    <div ng-hide="signedIn()">
+
+        <h1 ng-hide="crearUsuarioMode">Bienvenidos<br>a<br>Easy Q</h1><br>
+
+        <p ng-hide="crearUsuarioMode" class="lead">Easy Q es un producto del tipo Quiz diseñado para crear de manera rápida y fácil preguntas de elección única o múltiple.</p>
+
+        <div style="text-align: center">
+            <video src="http://uranio.tide.cl/deasyq/video/AngularFire.mp4" poster="images/video.png" controls="controls" width="500" height="250" preload="none"></video>
+        </div>
+
+        <h3>¿Que Quieres Hacer Hoy?</h3>
+
+        <table border="0" width="100%">
+            <tr>
+                <td align="center" valign="top">
+                    <button ng-click="responderMode = false" ng-hide="crearUsuarioMode" class="button-option btn btn-primary">Crear<br>Test</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <button ng-click="responderMode = true" ng-hide="crearUsuarioMode" class="button-option btn btn-primary">Responder<br>Test</button>
+                </td>
+            </tr>
+        </table><br><br>
+
+        <div ng-cloak ng-show="responderMode" class="control-group">
+
+          <input type="text" name="idTest" class="form-control text-center" placeholder="ID de Test" ng-model="idTest"><br>
+          <button ng-click="quizUser()" ng-show="responderMode" class="btn btn-lg btn-success">Ingresar</button><br><br>
+
+        </div>
+
+        <div ng-cloak ng-show="!responderMode" class="control-group">
+
+          <button class="btn btn-lg btn-success"><a class="link-color" href="#/login">Iniciar Sesión</a></button><br><br>
+
+        </div>
+
+    </div>
+</form>
+
+<div class="form-default" ng-show="signedIn()">
+
+  <h2 class="text-center">Test</h2><br>
+
+  <ul class="list-group">
+    <li class="list-group-item" ng-repeat="(testId, test) in tests">
+
+      <span class="badge"><a class="link-color" ng-click="deleteTest(testId)" ng-show="signedIn() && test.owner === currentUser.username">Eliminar</a></span>
+      <span class="badge"><a class="link-color" href="#/tests/{{testId}}" ng-show="signedIn() && test.owner === currentUser.username">Editar</a></span>
+      <a>{{test.title}}</a><br>
+      <span>{{test.description}}</span>
+
+    </li>
+  </ul><br>
+
+  <div class="text-center">
+
+    <a href="#/addtest"><img class="icons-flags" src="images/icons/mono/add.png"></a>
+
+  </div>
+</div>

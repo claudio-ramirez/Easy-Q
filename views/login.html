@@ -1,0 +1,54 @@
+
+<div class="container">
+    <form class="form-signin" ng-submit="login()">
+
+      <h2 class="form-signin-heading text-center">Acceder a Sesión</h2><br>
+
+      <table ng-hide="auth" border="0" width="100%">
+          <tr>
+              <td align="center" valign="top">
+                  <a href=""><img class="icons-social" src="images/icons/apple/Twitter-1.png"></a>
+                  <a href=""><img class="icons-social" src="images/icons/apple/Facebook.png"></a>
+                  <a href=""><img class="icons-social" src="images/icons/apple/Google.png"></a>
+              </td>
+          </tr>
+      </table>
+
+      <div>
+
+        <hr class="omb_hrOr">
+        <span class="omb_spanOr"></span>
+
+      </div>
+
+      <div class="input-group">
+
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input type="email" class="form-control" placeholder="Correo Electrónico" ng-model="user.email" required autofocus>
+
+      </div><br>
+
+      <div class="input-group">
+
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input class="form-control" placeholder="Contraseña" ng-model="user.password" required>
+
+      </div><br>
+
+      <div ng-show="forma.email.$dirty && forma.email.$invalid">
+
+        <p class="alert alert-warning" ng-show="forma.email.$error.required">Campo Obligatorio</p>
+        <p class="alert alert-danger" ng-show="forma.email.$error.email" >Email Invalido</p>
+
+      </div>
+
+      <button class="btn btn-lg btn-primary btn-block" ng-disabled="forma.$invalid" type="submit" value="Log in">Iniciar Sesión</button>
+
+      <label class="checkbox">
+
+        <input type="checkbox" value="remember-me"> Recordarme
+
+      </label>
+
+    </form>
+</div>
